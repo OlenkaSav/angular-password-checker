@@ -12,15 +12,15 @@ export class PasswordService {
       strength = 'empty'
     } else if (password.length <= 8) {
       strength = 'short';
-    } else if (/^[a-zA-Z]+$/.test(password) || /^[0-9]+$/.test(password) || /^[^a-zA-Z0-9]+$/.test(password) ) {
+    } else if (/^[a-zA-Zа-яА-Я]+$/.test(password) || /^[0-9]+$/.test(password) || /^[^a-zA-Zа-яА-Я0-9]+$/.test(password) ) {
         strength = 'easy';
     } else if (
-      /^[a-zA-Z0-9]+$/.test(password) ||
-      /^[a-zA-Z!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/.test(password) ||
+      /^[a-zA-Zа-яА-Я0-9]+$/.test(password) ||
+      /^[a-zA-Zа-яА-Я!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/.test(password) ||
       /^[0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/.test(password)
     ) {
       strength = 'medium';
-    } else if (/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/) {
+    } else if (/^(?=.*[a-zA-Zа-яА-Я])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[a-zA-Zа-яА-Я0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/) {
       strength = 'strong';
     }
     return strength;
